@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: GPL-3.0
+//SPDX-License-Identifier: Unlicense
 
 pragma solidity ^0.8.0;
 
@@ -16,18 +16,11 @@ contract Tara is ERC721, ERC721URIStorage, ReentrancyGuard {
     using SafeERC20 for ERC20;
     Counters.Counter private _idCounter;
 
-    address public uniToken; 
-    address public founder;
-    uint256 public mintPrice;
+    address public uniToken = 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984; 
+    address public founder = 0xA3288c8DF6B54aE08c610e06B4Cf9fc48Eb51316;
+    uint256 public mintPrice = 20000000000000000;
 
-    constructor(
-       address _uniToken,
-       address _founder,
-       uint256 _mintPrice
-    ) ERC721("Tara", "Tara") {
-        uniToken = _uniToken;
-        founder = _founder;
-        mintPrice = _mintPrice;
+    constructor() ERC721("Tara", "Tara") {
     }
 
     function mint(address to, string memory uri) external nonReentrant{
